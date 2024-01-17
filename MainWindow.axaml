@@ -1,0 +1,110 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1050" d:DesignHeight="530"
+        x:Class="Videoclub.MainWindow"
+        Width="1050"
+        Height="530"
+        Title="Videoclub"
+        Padding="-12,0,-12,-10"
+        Background="FloralWhite">
+        
+    
+        <TabControl BorderThickness="0,2,0,0" BorderBrush="Black">
+                <TabItem Header="Videoclub" FontFamily="Inconsolata" BorderThickness="20" Foreground="Black">
+                        <Panel><Image Stretch="UniformToFill"
+                                      Source="C:\Users\Rodri\Documents\GRADO-SUPERIOR-2024\DEINT\VIDEOCLUB\FONDO (1).jpg"/>
+                        </Panel>
+                </TabItem>
+                
+                <TabItem Header="Nueva Pelicula" FontFamily="Inconsolata" BorderThickness="20" Foreground="Black">
+                        <Panel>
+                                <Image Stretch="UniformToFill"
+                                       Source="C:\Users\Rodri\Documents\GRADO-SUPERIOR-2024\DEINT\VIDEOCLUB\interstellar (3).jpg"/>
+                                <StackPanel>
+                                        <TextBlock  Width="130" Margin="40,25,1000,0" FontWeight="Bold" FontStyle="Italic" FontSize="30" xml:space="preserve" Background="Black" Foreground="White">TITULO:</TextBlock>
+                                        <TextBlock  Width="170" Margin="40,25,1000,0" FontWeight="Bold" FontStyle="Italic" FontSize="30" xml:space="preserve" Background="Black" Foreground="White">DIRECTOR:</TextBlock>
+                                        <TextBlock  Width="140" Margin="40,25,1000,0" FontWeight="Bold" FontStyle="Italic" FontSize="30" xml:space="preserve" Background="Black" Foreground="White">GENERO:</TextBlock>
+                                        <TextBlock  Width="130" Margin="40,25,1000,0" FontWeight="Bold" FontStyle="Italic" FontSize="30" xml:space="preserve" Background="Black" Foreground="White">PRECIO:</TextBlock>
+                                </StackPanel>
+                                
+                                <!-- TextBox para introducir los datos en añadir pelicula -->
+                                <StackPanel Margin="400,0,600,0">
+                                        <TextBox Name="TextFieldTitulo" Width="300" Margin="0,28,0,0"  Watermark="Introduce un Titulo"/>
+                                        <TextBox Name="TextFieldDirector" Width="300" Margin="0,30,0,0" Watermark="Introduce un Director"/>
+                                        <TextBox Name="TextFieldGenero" Width="300" Margin="0,30,0,0" Watermark="Introduce un Genero"/>
+                                        <TextBox Name="TextFieldPrecio" Width="300" Margin="0,30,0,0" Watermark="Introduce un Precio"/>
+                                </StackPanel>
+                                <StackPanel Margin="30,400,0,0">
+                                        <Button Name="BtnAñadirPelicula" Click="BtnAñadirPelicula_OnClick">Añadir Película</Button>
+                                </StackPanel>
+                                <StackPanel Margin="200,400,0,0">
+                                        <Button Name="BtnAgregarPortada" Click="BtnAgregarPortada_OnClick">Agregar Portada</Button>
+                                </StackPanel>
+                        </Panel>
+                </TabItem>
+                <TabItem Header="Lista De Peliculas" FontFamily="Inconsolata" BorderThickness="20" Foreground="Black">
+                        <Panel>
+                                <Image Stretch="UniformToFill"
+                                       Source="C:\Users\Rodri\Documents\GRADO-SUPERIOR-2024\DEINT\VIDEOCLUB\fondolistas (1).jpg"/>
+                                <StackPanel>
+                                        <TextBlock  Name="TxtTitulo" Width="130" Margin="40,25,1000,0" FontWeight="Bold" FontStyle="Italic" FontSize="30" xml:space="preserve" Background="White" Foreground="Black">TITULO:</TextBlock>
+                                        <TextBlock  Name="TxtDirector" Width="170" Margin="40,25,1000,0" FontWeight="Bold" FontStyle="Italic" FontSize="30" xml:space="preserve" Background="White" Foreground="Black">DIRECTOR:</TextBlock>
+                                        <TextBlock  Name="TxtGenero" Width="140" Margin="40,25,1000,0" FontWeight="Bold" FontStyle="Italic" FontSize="30" xml:space="preserve" Background="White" Foreground="Black">GENERO:</TextBlock>
+                                        <TextBlock  Name="TxtPrecio" Width="130" Margin="40,25,1000,0" FontWeight="Bold" FontStyle="Italic" FontSize="30" xml:space="preserve" Background="White" Foreground="Black">PRECIO:</TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="200,220,0,0">
+                                        <TextBlock  Name="ContadorPeliculas" Width="10" Margin="40,325,1000,0" FontWeight="Bold" FontStyle="Italic" FontSize="15" xml:space="preserve" Background="White" Foreground="Black">nºpeli:</TextBlock>
+                                        <TextBlock  Name="ContadorTotalPeliculas" Width="10" Margin="40,325,1000,0" FontWeight="Bold" FontStyle="Italic" FontSize="15" xml:space="preserve" Background="White" Foreground="Black">total:</TextBlock>
+                                        
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="200,220,0,0">
+                                        <Button Name="btnAnterior" Background="Firebrick"  Click="BtnAnterior_OnClick">Anterior</Button>
+                                        <Button Name="btnModificar" Margin="10,0,0,0" Background="WhiteSmoke" Click="Modificar">Modificar</Button>
+                                        <Button Name="btnSiguiente" Margin="10,0,0,0" Background="CornflowerBlue" Click="BtnSiguiente_OnClick">Siguiente</Button>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="245,313,0,0">
+                                        <Button Name="btnAceptar"  Background="Coral" Click="BtnAceptar_OnClick">Aceptar</Button>
+                                        <Button Name="btnCancelar" Margin="5,0,0,0" Background="Coral" Click="BtnCancelar_OnClick">Cancelar</Button>
+                                       </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="200,350,0,0">
+                                        <Button Name="btnGuardarLista" Margin="7,50,0,0" Background="DarkSlateGray"  Click="BtnGuardarLista_OnClick">Guardar Lista lista</Button>
+                                        <Button Name="btnCargarLista" Margin="7,50,0,0" Background="DarkSlateGray"  Click="BtnCargarLista_OnClick">Cargar lista</Button>
+                                </StackPanel>
+                                <StackPanel Margin="400,0,600,0">
+                                        <TextBox Name="txtFieldTituloMod" Width="300" Margin="0,28,0,0"  Watermark="Introduce un Titulo"/>
+                                        <TextBox Name="txtFieldDirectorMod" Width="300" Margin="0,30,0,0" Watermark="Introduce un Director"/>
+                                        <TextBox Name="txtFieldGeneroMod" Width="300" Margin="0,30,0,0" Watermark="Introduce un Genero"/>
+                                        <TextBox Name="txtFieldPrecioMod" Width="300" Margin="0,30,0,0" Watermark="Introduce un Precio"/>
+                                </StackPanel>
+                                <StackPanel Margin="20,370,0,0">
+                                        <Button Name="BtnBorrar" Background="DarkRed" BorderThickness="1" BorderBrush="Bisque" Opacity="0.7"  Margin="10,0,0,0" Click="BtnBorrar_OnClick">
+                                                <Image Source="C:\Users\Rodri\Documents\GRADO-SUPERIOR-2024\DEINT\VIDEOCLUB\delete (1).png" Width="50" Height="50"/>
+                                        </Button>
+                                </StackPanel>
+                                      <Panel>
+                                              <Image Name="PictureBox"  Margin="650,0,0,0" Height="400" Width="500" />
+                                        </Panel>
+                                
+                              <!-- aqui van los txtView donde aparecerán los datos del objeto pelicula en ese caso. -->
+                                <StackPanel>
+                                        <TextBlock Name="TxtViewTitulo" Width="350" Margin="300,25,1000,0" FontStyle="Italic" FontSize="30" xml:space="preserve" Background="Black" Foreground="White">TITULO</TextBlock>
+                                        <TextBlock Name="TxtViewDirector" Width="350" Margin="300,25,1000,0" FontStyle="Italic" FontSize="30" xml:space="preserve" Background="Black" Foreground="White">DIRECTOR</TextBlock>
+                                        <TextBlock Name="TxtViewGenero" Width="350" Margin="300,25,1000,0" FontStyle="Italic" FontSize="30" xml:space="preserve" Background="Black" Foreground="White">GENERO</TextBlock>
+                                        <TextBlock Name="TxtViewPrecio" Width="350" Margin="300,25,1000,0" FontStyle="Italic" FontSize="30" xml:space="preserve" Background="Black" Foreground="White">PRECIO</TextBlock>
+                                </StackPanel>
+                        </Panel>
+                </TabItem>
+                
+                <TabItem Header="Proximos Estrenos" FontFamily="Inconsolata" BorderThickness="20" Foreground="Red">
+                        <Panel>
+                                <Rectangle Height="300" Width="300" Fill="LightGray"></Rectangle>
+                                <Image Stretch="UniformToFill"
+                                       Source="C:\Users\Rodri\Documents\GRADO-SUPERIOR-2024\DEINT\VIDEOCLUB\proximosEstrenos.jpg"/>
+                                
+                                <Image Source="C:\Users\Rodri\Documents\GRADO-SUPERIOR-2024\DEINT\VIDEOCLUB\Under_Construction_PNG_Clip_Art_Image-2585.png" Margin="0,0,0,65" Width="400" Height="400"/>
+                        </Panel>
+                </TabItem>
+        </TabControl> 
+</Window>
